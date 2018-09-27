@@ -53,13 +53,27 @@ function getActorGifs() {
       gif
       .attr("src", object[i].images.fixed_height.url)
       .attr("data-animate", object[i].images.fixed_height.url)
-      .attr("data-still", object[i].images.fixed_height_still.url);
+      .attr("data-still", object[i].images.fixed_height_still.url)
+      .attr("data-state", "animate");
 
       // write gif to page
-      $("#gif-display").append(gif);
-    }
+      $("#gif-display").prepend(gif);
+    };
   })
 };
+
+$(document).on("click", ".gif", function() {
+  var state = $(this).attr("data-state");
+  console.log($(this).attr("data-state"));
+  //change state on click
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+});
 
 $(document).on("click", ".actors", getActorGifs);
 //run function to render variables
