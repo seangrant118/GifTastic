@@ -50,6 +50,7 @@ function getActorGifs() {
       // create img
       var gif = $("<img class='gif img-thumbnail mr-2'>");
       // assign attribute
+      var p = $("<p>").text("Rating: " + object[i].rating);
       gif
       .attr("src", object[i].images.fixed_height.url)
       .attr("data-animate", object[i].images.fixed_height.url)
@@ -57,7 +58,10 @@ function getActorGifs() {
       .attr("data-state", "animate");
 
       // write gif to page
-      $("#gif-display").prepend(gif);
+     
+      $("#gif-display")
+      .prepend(gif)
+      .prepend(p);
     };
   })
 };
