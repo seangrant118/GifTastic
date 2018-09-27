@@ -48,7 +48,7 @@ function getActorGifs() {
     // for loop for generating img through array
     for (var i = 0; i < object.length; i++) {
       // create img
-      var gif = $("<img class='gif img-thumbnail'>");
+      var gif = $("<img class='gif img-thumbnail mr-2'>");
       // assign attribute
       gif
       .attr("src", object[i].images.fixed_height.url)
